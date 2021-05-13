@@ -1,0 +1,47 @@
+# DataSource Config
+spring:
+  application:
+    name: ware-jwt-token
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sys?serverTimezone=UTC
+    username: root
+    password: 741523
+  redis:
+    enabled: true
+    host: 127.0.0.1
+    port: 6379
+    pcmassword:
+  jedis:
+    pool:
+      max-idle: 100
+      min-idle: 0
+      max-active: 300
+      max-wait: 1000ms
+      database: 0
+  shiro-redis:
+    enabled: true
+    redis-manager:
+    host: 127.0.0.1:6379
+  main:
+    allow-bean-definition-overriding: true
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+schserver:
+  jwt:
+    secret: f4e2e52034348f86b67cde581c0f9eb5 #密钥
+    expire: 604800 #有效时长
+    head: Authorization
+server:
+  port: 8081
+#config:
+#jwt:
+#    # 加密密钥
+#  secret: iwqjhda8232bjgh432[cicada-smile]
+#    # token有效时长
+#  expire: 3600
+#    # header 名称
+#  header: token
